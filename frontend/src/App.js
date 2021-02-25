@@ -28,13 +28,7 @@ class App extends Component {
       .catch((err) => console.log(err));
   };
 
-  toggle = () => {
-    this.setState({ modal: !this.state.modal });
-  };
-
   handleSubmit = (item) => {
-    this.toggle();
-
     if (item.id) {
       axios
         .put(`/api/todos/${item.id}/`, item)
@@ -68,6 +62,10 @@ class App extends Component {
     }
 
     return this.setState({ viewCompleted: false });
+  };
+
+  toggle = () => {
+    this.setState({ modal: !this.state.modal });
   };
 
   renderItems = () => {
